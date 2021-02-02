@@ -1,13 +1,33 @@
 import { useDispatch } from "react-redux";
 import { watchedMovie, deleteMovie } from "../store/actions";
+import { useState } from "react";
+
 export default function MovieItem({ movie }) {
+  const [status, setStatus] = useState(false);
+
   const dispatch = useDispatch();
 
+  const showimg = () => {
+    // <img src={movie.image} alt={movie.image} style={{ width: "95px" }}></img>;
+    setStatus(!status);
+  };
+
   return (
-    <li class="list-group-item">
-      <h2 style={{ display: "contents" }} className="lead">
+    <li class="list-group-item" style={{ paddingBottom: " 20px" }}>
+      <h2
+        className="lead"
+        style={{ fontWeight: "bold", padding: "10px 0 10px" }}
+        onClick={showimg}
+      >
         {movie.name}
       </h2>
+      {status && (
+        <img
+          src={movie.image}
+          alt={movie.image}
+          style={{ width: "95px" }}
+        ></img>
+      )}
       <button
         type="button"
         class="btn btn-outline-success mx-2 btn-sm"

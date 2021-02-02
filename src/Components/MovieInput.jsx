@@ -8,6 +8,7 @@ export default function MovieInput() {
   const [movie, setMovie] = useState({
     id: lastID,
     name: "",
+    image: "",
     watched: true,
   });
 
@@ -21,6 +22,7 @@ export default function MovieInput() {
     setMovie({
       id: lastID + 1,
       name: "",
+      image: "",
       watched: true,
     });
   };
@@ -38,6 +40,20 @@ export default function MovieInput() {
           />
           <label className="form-label" for="form1Example1">
             Add Movie
+          </label>
+        </div>
+
+        <div className="form-outline mb-4">
+          <input
+            type="text"
+            className="form-control"
+            name="image"
+            value={movie.image}
+            onChange={handleChange}
+            id="form1Example1"
+          />
+          <label className="form-label" for="form1Example1">
+            Add Movie's Image
           </label>
         </div>
 
