@@ -8,6 +8,7 @@ export default function MovieInput() {
   const [movie, setMovie] = useState({
     id: lastID,
     name: "",
+    watched:true
   });
 
   const handleChange = (event) => {
@@ -20,6 +21,7 @@ export default function MovieInput() {
     setMovie({
       id: lastID+1,
       name: "",
+      watched:true
     });
   };
   return (

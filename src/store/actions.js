@@ -1,6 +1,6 @@
 const DELETE_MOVIE = "DELETE_MOVIE";
 const ADD_MOVIE = "ADD_MOVIE";
-
+const WATCHED_MOVIE = "WATCHED_MOVIE";
 export const deleteMovie = (movieID) => {
   return {
     type: DELETE_MOVIE,
@@ -14,3 +14,12 @@ export const addMovie = (newMovie) => {
     payload: { newMovie }, // {newPerson: newPerson}
   };
 };
+
+
+export const watchedMovie = (movie) => {
+    return {
+      type: WATCHED_MOVIE,
+      payload: { movie}, // {newPerson: newPerson}
+    };
+  };
+  

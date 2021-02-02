@@ -1,6 +1,5 @@
 const initialState = {
-  toWatch: [],
-  unwatched: [],
+  movies: [],
   lastID: 1,
 };
 const reducer = (state = initialState, action) => {
@@ -16,8 +15,19 @@ const reducer = (state = initialState, action) => {
     case "ADD_MOVIE":
       return {
         ...state,
-        toWatch: [...state.toWatch, action.payload.newMovie],
+        movies: [...state.movies, action.payload.newMovie],
         lastID: state.lastID + 1,
+      };
+    case "WATCHED_MOVIE":
+      const index = state.movies.findIndex(
+        (movie) => movie.id === action.payload.movie.id
+      );
+      const newState = [...state.movies];
+      newState[index] = action.payload.movie;
+      console.log(newState);
+      return {
+        ...state,
+        movies: [...newState],
       };
     default:
       return state;

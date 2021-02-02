@@ -1,11 +1,30 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { watchedMovie } from "../store/actions";
+export default function MovieItem({ movie }) {
+  const dispatch = useDispatch();
 
-export default function MovieItem(props) {
   return (
     <li class="list-group-item">
-      {props.movie.name}
-      <button></button>
-      <button></button>
+      <h2 style={{display:"contents"}} className="lead">{movie.name}</h2>
+      <button
+        type="button"
+        class="btn btn-outline-success mx-2 btn-sm"
+        data-mdb-ripple-color="dark"
+        style={{ float: "right" }}
+        onClick={() =>
+          dispatch(watchedMovie({ ...movie, watched: !movie.watched }))
+        }
+      >
+        {(movie.watched)?"Watched":"Unwatched"}
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-danger mx-2 btn-sm"
+        data-mdb-ripple-color="dark"
+        style={{ float: "right" }}
+      >
+        Delete
+      </button>
     </li>
   );
 }
