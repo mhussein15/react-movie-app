@@ -1,7 +1,7 @@
 const initialState = {
   toWatch: [],
   unwatched: [],
-  lastID: 0,
+  lastID: 1,
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
