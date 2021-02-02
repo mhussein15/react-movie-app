@@ -8,7 +8,7 @@ export default function MovieInput() {
   const [movie, setMovie] = useState({
     id: lastID,
     name: "",
-    watched:true
+    watched: true,
   });
 
   const handleChange = (event) => {
@@ -19,9 +19,9 @@ export default function MovieInput() {
     event.preventDefault();
     dispatch(addMovie(movie));
     setMovie({
-      id: lastID+1,
+      id: lastID + 1,
       name: "",
-      watched:true
+      watched: true,
     });
   };
   return (
@@ -34,6 +34,7 @@ export default function MovieInput() {
             name="name"
             value={movie.name}
             onChange={handleChange}
+            id="form1Example1"
           />
           <label className="form-label" for="form1Example1">
             Add Movie

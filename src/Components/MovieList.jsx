@@ -18,20 +18,24 @@ export default function MovieList() {
     }
   });
 
-  console.log(movies);
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-6">
-          <h1>Watched</h1>
+        <div className="col-5  p-3 m-2">
+          <h1 className="lead">
+            Watchlist{" "}
+            <span style={{ float: "right" }}>{toWatchList.length}</span>
+          </h1>
           <ul class="list-group">
             {toWatchList.map((movie) => (
               <MovieItem movie={movie} />
             ))}
           </ul>
         </div>
-        <div className="col-6">
-          <h1>To Watched</h1>
+        <div className="col-5  p-3 m-2 ms-auto">
+          <h1 className="lead">
+            Watched <span style={{ float: "right" }}>{WatchedList.length}</span>
+          </h1>
           <ul class="list-group">
             {WatchedList.map((movie) => (
               <MovieItem movie={movie} />

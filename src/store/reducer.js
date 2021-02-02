@@ -5,12 +5,12 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "DELETE_MOVIE":
-      const filteredProduct = state.products.filter(
-        (product) => product.id !== action.payload.productID
+      const filteredMovie = state.movies.filter(
+        (movie) => movie.id !== action.payload.movieID
       );
       return {
         ...state,
-        products: filteredProduct,
+        movies: filteredMovie,
       };
     case "ADD_MOVIE":
       return {
@@ -24,7 +24,6 @@ const reducer = (state = initialState, action) => {
       );
       const newState = [...state.movies];
       newState[index] = action.payload.movie;
-      console.log(newState);
       return {
         ...state,
         movies: [...newState],
