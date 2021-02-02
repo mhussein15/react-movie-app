@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
 import MovieItem from "./MovieItem";
-import SearchBar from "./SearchBar";
+import SearchBarWatch from "./SearchBarWatch";
+import SearchBarUnwatch from "./SearchBarUnwatch";
 import { useState } from "react";
 
 export default function MovieList() {
-  const [query, setQuery] = useState("");
+  const [watch, setWatch] = useState("");
+  const [unwatch, setUnwatch] = useState("");
 
   const movies = useSelector((state) => state.movies);
 
@@ -30,11 +32,11 @@ export default function MovieList() {
             Watchlist{" "}
             <span style={{ float: "right" }}>{toWatchList.length}</span>
           </h1>
-          <SearchBar setQuery={setQuery} />
+          <SearchBarUnwatch setUnwatch={setUnwatch} />
           <ul class="list-group">
             {toWatchList
               .filter((movie) =>
-                movie.name.toLowerCase().includes(query.toLowerCase())
+                movie.name.toLowerCase().includes(unwatch.toLowerCase())
               )
               .map((movie) => (
                 <MovieItem movie={movie} />
@@ -45,10 +47,10 @@ export default function MovieList() {
           <h1 className="lead">
             Watched <span style={{ float: "right" }}>{WatchedList.length}</span>
           </h1>
-          <SearchBar setQuery={setQuery} />
+          <SearchBarWatch setWatch={setWatch} />
           <ul class="list-group">
             {WatchedList.filter((movie) =>
-              movie.name.toLowerCase().includes(query.toLowerCase())
+              movie.name.toLowerCase().includes(watch.toLowerCase())
             ).map((movie) => (
               <MovieItem movie={movie} />
             ))}
